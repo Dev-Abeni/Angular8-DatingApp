@@ -5,6 +5,10 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    // Prevents the compiler from checking strict variable intialization
+    "strictPropertyInitialization": false,
+    // Prevents the compiler from checking strict nulls
+    "strictNullChecks": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
