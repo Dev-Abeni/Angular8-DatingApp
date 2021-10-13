@@ -1,0 +1,8 @@
+When Adding NGX-Bootstrap you may face issues: 
+
+To solve those issues: 
+1. Disable the Angular Language Service VS Code Extension
+2. Delete node_modules folder 
+3. npm install
+
+Problem will be solved.
