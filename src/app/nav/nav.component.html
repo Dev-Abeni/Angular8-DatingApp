@@ -17,7 +17,9 @@
   </ul>
 
   <div *ngIf="loggedIn()" class="dropdown">
-    <a class="dropdown-toggle text-light">Welcome User</a>
+    <!-- Intellicense always underlines this service because it is declared as PRIVATE,
+      but nor problem compiling the code, it still works. -->
+    <a class="dropdown-toggle text-light">Welcome {{authService.decodedToken?.unique_name | titlecase}}</a>
 
     <div class="dropdown-menu">
       <a href="" class="dropdown-item"><i class="fa fa-user"></i> Edit Profile</a>
