@@ -18,17 +18,20 @@ export class MemberDetailComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data['user'];
+    });
   }
 
-  loadUser() {
-    // The ( + ) in the begininning parses the statement to be "int".
-    this.userService.getUser(+this.route.snapshot.params['id'])
-      .subscribe((user: User) => {
-        this.user = user;
-      }, error => {
-        this.alertify.error(error);
-      });
-  }
+  // THIS IS COMMENTED BECAUSE WE IMPLEMENTED IT IN THE "ngOnInit" METHOD
+  // loadUser() {
+  //   // The ( + ) in the begininning parses the statement to be "int".
+  //   this.userService.getUser(+this.route.snapshot.params['id'])
+  //     .subscribe((user: User) => {
+  //       this.user = user;
+  //     }, error => {
+  //       this.alertify.error(error);
+  //     });
+  // }
 
 }
