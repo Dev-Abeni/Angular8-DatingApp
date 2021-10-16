@@ -2,8 +2,8 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-sm-12">
-      <div class="alert alert-danger">
-        <p><i class="fa fa-warning"></i><strong> Information: </strong>You have made changes. Any unsaved changes might be lost!</p>
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <i class="fa fa-warning"></i><strong> Information: </strong>You have made changes. Any unsaved changes might be lost!
       </div>
     </div>
   </div>
@@ -36,7 +36,8 @@
         </div>
         <div class="card-footer">
           <div class="btn-group d-flex">
-            <button class="btn btn-success btn-block">Save Changes</button>
+            <!-- We link the button with the form using an id, because the button is outside the form block. -->
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
           </div>
         </div>
       </div>
@@ -45,7 +46,7 @@
       <div class="tab-panel">
         <tabset class="member-tabset">
           <tab heading="Edit Profile" class="mt-2">
-            <form action="">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
               <label for="description">Description</label>
               <textarea name="introduction" [(ngModel)]="user.introduction"
                 class="form-control" rows="6"></textarea>
