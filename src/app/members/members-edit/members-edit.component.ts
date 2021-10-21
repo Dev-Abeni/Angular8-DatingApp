@@ -14,6 +14,7 @@ import { UserService } from 'src/app/_services/user.service';
 export class MembersEditComponent implements OnInit {
   @ViewChild('editForm', {static: false}) editForm: NgForm;
   user: User;
+  photoUrl: string;
 
   // This allows Angular to notify users if browser accidentaly closes before
   // saving the changes in the profile edit form.
@@ -32,7 +33,9 @@ export class MembersEditComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.user = data['user'];
-    })
+    });
+
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   updateUser(){
