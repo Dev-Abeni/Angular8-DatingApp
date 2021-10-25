@@ -31,6 +31,7 @@ import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { MembersEditComponent } from './members/members-edit/members-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -55,7 +56,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     MemberCardComponent,
     MemberDetailComponent,
     MembersEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
