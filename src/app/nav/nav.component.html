@@ -18,7 +18,7 @@
       <!-- Intellicense always underlines this service because it is declared as PRIVATE,
         but nor problem compiling the code, it still works. -->
         <span class="mr-1">
-          <img src="{{photoUrl}}" alt="">
+          <img src="{{photoUrl || '../../../../assets/user.png" alt="">
         </span>
       <a class="dropdown-toggle text-light" dropdownToggle>
         Welcome {{authService.decodedToken?.unique_name | titlecase}}
