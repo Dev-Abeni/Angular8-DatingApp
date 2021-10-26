@@ -19,7 +19,7 @@ export class UserService {
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
 
     let params = new HttpParams();
-    if(params != null && itemsPerPage != null){
+    if(page != null && itemsPerPage != null){
       params = params.append('pageNumber', page);
       params = params.append('pageSize', itemsPerPage);
     }
@@ -28,8 +28,8 @@ export class UserService {
       .pipe(
         map(response => {
           paginatedResult.result = response.body;
-          if(response.headers.get('Pagingation') != null){
-            paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'))
+          if(response.headers.get('Pagination') != null){
+            paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
           }
           return paginatedResult;
         })
